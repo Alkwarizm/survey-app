@@ -21,12 +21,16 @@ Develop a simple survey app. This should strictly be an api with publicly availa
 
 ## Usage
 Endpoints
-- `POST /api/v1/surveys` - Create a survey (CRUD, has get, put, delete)
+- `POST /api/v1/surveys` - Create a survey (CRUD)
 ```php
 {
     "title": "Survey Title",
 }
 ```
+- `GET /api/v1/surveys?include=questions` - Get all surveys with questions
+- `GET /api/v1/surveys?include=responses` - Get all surveys with responses
+
+
 - `POST /api/v1/surveys/{survey}/questions` - Create questions for a survey
 ```php
 {
