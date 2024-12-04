@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Enums\QuestionType;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\V1\CreateSurveyQuestionRequest;
 use App\Http\Resources\QuestionResource;
 use App\Models\Survey;
 
-class QuestionController extends Controller
+class QuestionController
 {
     public function __invoke(CreateSurveyQuestionRequest $request, Survey $survey)
     {
