@@ -15,6 +15,8 @@ class SurveyResource extends JsonResource
             'title' => $this->title,
             'updated_at' => $this->updated_at,
             'created_at' => $this->created_at,
+            'questions' => QuestionResource::collection($this->whenLoaded('questions')),
+            'responses' => SurveyResponseResource::collection($this->whenLoaded('responses')),
         ];
     }
 }

@@ -16,7 +16,14 @@ class SurveyController
 
     public function index()
     {
-        $surveys = Survey::all();
+        $includes = array_filter(
+            explode(',', request()->query('include', '')),
+            fn($value) => !is_null($value) && $value !== ''
+        );
+
+        $surveys = blank($includes)
+            ? Survey::all()
+            : Survey::query()->with($includes)->get();
 
         return response()->json(SurveyResource::collection($surveys));
     }
