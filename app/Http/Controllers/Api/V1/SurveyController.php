@@ -11,14 +11,13 @@ use Illuminate\Support\Facades\DB;
 
 class SurveyController
 {
-    public function __construct(protected CreateOrUpdateSurvey $createOrUpdateSurvey)
-    {}
+    public function __construct(protected CreateOrUpdateSurvey $createOrUpdateSurvey) {}
 
     public function index()
     {
         $includes = array_filter(
             explode(',', request()->query('include', '')),
-            fn($value) => !is_null($value) && $value !== ''
+            fn ($value) => ! is_null($value) && $value !== ''
         );
 
         $surveys = blank($includes)

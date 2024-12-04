@@ -14,7 +14,7 @@ class Question extends Model implements HasMedia
     use HasFactory, InteractsWithMedia;
 
     protected $guarded = [
-        'id'
+        'id',
     ];
 
     protected $casts = [
@@ -26,6 +26,7 @@ class Question extends Model implements HasMedia
     {
         return $this->getFirstMedia('image')?->getFullUrl();
     }
+
     public function survey(): BelongsTo
     {
         return $this->belongsTo(Survey::class);

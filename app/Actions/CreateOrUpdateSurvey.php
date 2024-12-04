@@ -8,7 +8,7 @@ class CreateOrUpdateSurvey
 {
     public function execute(array $data, ?Survey $survey = null): Survey
     {
-        $survey = $survey ?? new Survey();
+        $survey = $survey ?? new Survey;
 
         $survey->fill($data);
 
