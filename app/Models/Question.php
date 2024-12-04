@@ -24,7 +24,7 @@ class Question extends Model implements HasMedia
 
     public function imageUrl(): ?string
     {
-        return $this->getFirstMedia('image')?->getFullUrl();
+        return $this->getFirstMedia('question_images')?->getFullUrl();
     }
 
     public function survey(): BelongsTo
